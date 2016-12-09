@@ -29,7 +29,7 @@
         $.extend(that.scope, {title: data.title, value: data.value})
       })
     },
-    interval: 5000
+    interval: 2000
   });
   dashboard.addWidget('ButtonDownWidget', 'Number', {
     getData: function( ) {
@@ -38,7 +38,7 @@
         $.extend(that.scope, {title: data.title, value: data.value})
       })
     },
-    interval: 5000
+    interval: 2000
   });
   dashboard.addWidget('ButtonLeftWidget', 'Number', {
     getData: function( ) {
@@ -47,7 +47,7 @@
         $.extend(that.scope, {title: data.title, value: data.value})
       })
     },
-    interval: 5000
+    interval: 2000
   });
   dashboard.addWidget('TemperatureWidget', 'Graph', {
     getData: function( ) {
@@ -59,7 +59,7 @@
             $.extend(that.scope, { properties: {renderer: 'line', padding: { top: 0.1, right: 0.1}}, value: data.data[0].y, title: 'Temperature Widget', moreInfo: '℃' })
         });
     },
-    interval: 5000
+    interval: 2000
   });
 </script>
 {% endblock %}
