@@ -1,0 +1,31 @@
+{
+
+  "event": "button",
+
+  "url": "https://kelp-test-eventhub.servicebus.windows.net/button/messages",
+
+  "requestType": "POST",
+
+  "json": {
+
+      "direction": "{{direction}}",
+      
+      "time": "{{PARTICLE_PUBLISHED_AT}}",
+
+      "guid": "{{PARTICLE_DEVICE_ID}}"
+
+   },
+
+  "azure_sas_token": {
+
+     "key_name": "button",
+
+     "key": "WNo2nAuGfJLL90lJtk3qYB3WE6IBzQpPSdpBpHQaGC0="
+
+  },
+
+ "mydevices": true,
+ "nodefaults": true
+
+}
+

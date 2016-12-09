@@ -1,0 +1,65 @@
+{% extends 'dashing/base.html' %}
+{% load staticfiles %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
+
+{% block config_file %}
+<script>
+  var dashboard = new Dashboard();
+
+  dashboard.addWidget('clock_widget', 'Clock');
+
+  dashboard.addWidget('ButtonUpWidget', 'Number', {
+    getData: function( ) {
+      var that = this;
+      $.get('widgets/ButtonUpWidget/', function(data) {
+        $.extend(that.scope, {title: data.title, value: data.value})
+      })
+    },
+    interval: 5000
+  });
+  dashboard.addWidget('ButtonRightWidget', 'Number', {
+    getData: function( ) {
+      var that = this;
+      $.get('widgets/ButtonRightWidget/', function(data) {
+        $.extend(that.scope, {title: data.title, value: data.value})
+      })
+    },
+    interval: 5000
+  });
+  dashboard.addWidget('ButtonDownWidget', 'Number', {
+    getData: function( ) {
+      var that = this;
+      $.get('widgets/ButtonDownWidget/', function(data) {
+        $.extend(that.scope, {title: data.title, value: data.value})
+      })
+    },
+    interval: 5000
+  });
+  dashboard.addWidget('ButtonLeftWidget', 'Number', {
+    getData: function( ) {
+      var that = this;
+      $.get('widgets/ButtonLeftWidget/', function(data) {
+        $.extend(that.scope, {title: data.title, value: data.value})
+      })
+    },
+    interval: 5000
+  });
+  dashboard.addWidget('TemperatureWidget', 'Graph', {
+    getData: function( ) {
+      var that = this;
+          Dashing.utils.get('TemperatureWidget', function(data) {
+            console.log(data);
+            console.log(that.scope);
+            $.extend(that.scope, data);
+            $.extend(that.scope, { properties: {renderer: 'line', padding: { top: 0.1, right: 0.1}}, value: data.data[0].y, title: 'Temperature Widget', moreInfo: '℃' })
+        });
+    },
+    interval: 5000
+  });
+</script>
+{% endblock %}

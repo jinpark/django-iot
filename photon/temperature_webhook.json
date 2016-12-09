@@ -1,0 +1,31 @@
+{
+
+  "event": "temperature",
+
+  "url": "https://kelp-test-eventhub.servicebus.windows.net/temperature/messages",
+
+  "requestType": "POST",
+
+  "json": {
+
+      "temp": "{{temp}}",
+      
+      "time": "{{PARTICLE_PUBLISHED_AT}}",
+
+      "guid": "{{PARTICLE_DEVICE_ID}}"
+
+   },
+
+  "azure_sas_token": {
+
+     "key_name": "temperature",
+
+     "key": "dAE3uyN0hWeC0wv2Hi+vyYsuKPsIDptqwvvG0q+iLfc="
+
+  },
+
+ "mydevices": true,
+ "nodefaults": true
+
+}
+
